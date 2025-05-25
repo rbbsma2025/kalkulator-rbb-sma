@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KALKULATOR RBB BUMN FORMASI SMA</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input {
+      margin-bottom: 10px;
+      padding: 5px;
+      width: 150px;
+    }
+    button {
+      padding: 6px 12px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .hasil {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>KALKULATOR RBB BUMN FORMASI SMA</h2>
+
+  <label>Nilai TKD:</label><br>
+  <input type="number" id="tkd" value="100"><br>
+
+  <label>Nilai AHLAK:</label><br>
+  <input type="number" id="ahlak" value="100"><br>
+
+  <label>Nilai TWK:</label><br>
+  <input type="number" id="twk" value="100"><br>
+
+  <label>Nilai LA:</label><br>
+  <input type="number" id="la" value="50"><br><br>
+
+  <button onclick="hitungNilai()">Hitung Nilai Akhir</button>
+
+  <div class="hasil" id="output"></div>
+
+  <script>
+    function hitungNilai() {
+      const tkd = parseFloat(document.getElementById("tkd").value) || 0;
+      const ahlak = parseFloat(document.getElementById("ahlak").value) || 0;
+      const twk = parseFloat(document.getElementById("twk").value) || 0;
+      const la = parseFloat(document.getElementById("la").value) || 0;
+
+      const tes1 = (tkd * 0.4) + (ahlak * 0.5) + (twk * 0.1);
+      const tes2 = la * 2;
+      const akumulasi = (tes1 * 0.6) + (tes2 * 0.4);
+
+      document.getElementById("output").innerHTML = `
+        TES 1: ${tes1.toFixed(2)}<br>
+        TES 2: ${tes2.toFixed(2)}<br>
+        Akumulasi: <strong>${akumulasi.toFixed(2)}</strong>
+      `;
+    }
+  </script>
+</body>
+</html>
